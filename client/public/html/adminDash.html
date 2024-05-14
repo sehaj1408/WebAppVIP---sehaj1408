@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web App VIP - Admin Dash</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../../src/css/adminDash.css">
+    <link rel="icon" href="../assets/favicon.ico">
+  </head>
+  <body>
+
+      <!--  HTML CODE FOR THE NAV BAR  -->
+      <div class="navbar" style="display: none;">
+        <div class="navbar-logo-container">
+            <a href="index.html" target="_self"><img alt="navbar-logo" id="navbarLogo" src="../assets/navbar-logo.png" class="navbar-logo prevent-select"></a>
+        </div>
+
+        <div id="languageSelectorButton">
+            <i class="fa fa-language" aria-hidden="true"></i>
+        </div>
+
+        <div id="hamburgerContainer" class="hamburger-container">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="hamburgerTopLevelList" class="hamburger-toplevel-list">
+            <div id="scanHamburgbutton" class="hamburg-normal-toplevel-button prevent-select current-hamburg-link">
+                Scan
+            </div>
+            <div id="aboutUsHamburgbutton" class="hamburg-normal-toplevel-button prevent-select">
+                About Us
+            </div>
+            <div id="resourcesHamburgbutton" class="hamburg-normal-toplevel-button prevent-select">
+                <span class="hamburg-toplevel-chevron"><i id="hamburgChevron" class="fa-solid fa-chevron-left fa-xs"></i></span> Resources
+            </div>
+            <div id="hamburgSubListContainer" class="hamburg-sublist">
+                <div id="techUsedHamburgbutton" class="hamburg-sublist-item prevent-select">Technology Used</div>
+                <div id="vulnerabilityDictHamburgbutton" class="hamburg-sublist-item prevent-select">Vulnerability Dictionary</div>
+                <div id="siteThemePickerHamburgbutton" class="hamburg-sublist-item prevent-select">
+                    <div>Appearance <i class="fa fa-cog" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="navbarContainer" class="navbar-normal-content-container">
+            <div id="scanNavbarbutton" class="navbar-normal-toplevel-button prevent-select current-navbar-link">
+                Scan
+            </div>
+            <div id="aboutUsNavbarbutton" class="navbar-normal-toplevel-button prevent-select">
+                About Us
+            </div>
+            <div id="resourcesNavbarbutton" class="navbar-normal-toplevel-button prevent-select">
+                Resources <span class="navbar-toplevel-chevron"><i id="navbarChevron" class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div id="navbarListContainer" class="navbar-list">
+                <div id="techUsedNavbarbutton" class="navbar-list-item prevent-select">Technology Used</div>
+                <div id="vulnerabilityDictNavbarbutton" class="navbar-list-item prevent-select">Vulnerability Dictionary</div>
+                <button id="siteThemePickerNavbarbutton" class="navbar-list-item prevent-select">
+                    <div>Appearance <i class="fa fa-cog" aria-hidden="true"></i></div>
+                </button>
+            </div>
+        </div>
+    </div> 
+
+    <!--Language Selector Modal Container-->
+    <div id="languageSelectorModal" style="display: none;">
+        <div style="display: none;" id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+        </script>      
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <div id="languageSelectorContent">
+            <div id="languageSelectInputContainer">
+                <label for="languageSelectorInput">Change Language:</label>
+
+                <select name="languageSelectorInput" id="languageSelectorInput">
+                    <option value="english">English</option>
+                    <option value="french">French</option>
+                    <option value="russian">Russian</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="polish">Polish</option>
+                    <option value="mandarin">Mandarin</option>
+                </select>
+            </div>
+            <div id="languageBottomButtonsContainer">
+                <button id="languageSelectorCancelButton">Cancel</button>
+                <button id="languageSelectorApplyButton" class="disabledApply" disabled>Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Color Picker Modal Container-->
+    <div id="appearance-modal" class="modal" style="display: none;">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Website Appearance</h2>
+            </div>
+
+            <div class="modal-middle-section">
+                <div class="modal-subheadings">
+                    <h2>Presets</h2>
+                        <!--Preset Buttons-->
+                    <div class="preset-scroll-box">
+                        <div id="regularButton" class="preset-button regular-button">Regular</div>
+                        <div id="lightButton" class="preset-button light-button">Light Mode</div>
+                        <div id="darkButton" class="preset-button dark-button">Dark Mode</div>
+                        <div id="terminalButton" class="preset-button terminal-button">Terminal Green</div>
+                        <div id="custom1Button" class="preset-button custom1-button">Custom Slot 1</div>
+                        <div id="custom2Button" class="preset-button custom2-button">Custom Slot 2</div>
+                  </div>
+                </div>
+
+                <!--Hex Code Boxes-->
+                <div class="color-scroll-box">
+                    <div class="color-boxes">
+
+                        <!-- Background Color -->
+                        <div class="color-box">
+                            <h3>Background Color</h3>
+                            <input type="color" style="display: none;" data-index="0">
+                            <div class="color-rectangle" style="background-color: #9747FF;"></div>
+                            <p>RGB(151, 71, 255)</p>
+                        </div>
+                        <!-- Secondary Color -->
+                        <div class="color-box">
+                            <h3>Secondary Color</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #FFFFFF;"></div>
+                            <p>RGB(255, 255, 255)</p>
+                        </div>
+                        <!-- Black Text -->
+                        <div class="color-box">
+                            <h3>Black Text</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #1E1E1E;"></div>
+                            <p>RGB(30, 30, 30)</p>
+                        </div>
+                        <!-- White Text -->
+                        <div class="color-box">
+                            <h3>White Text</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #FFFFFF;"></div>
+                            <p>RGB(255, 255, 255)</p>
+                        </div>
+                        <!-- All Risk -->
+                        <div class="color-box">
+                            <h3>All Risk</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #89B8FF;"></div>
+                            <p>RGB(137, 184, 255)</p>
+                        </div>
+                        <!-- Low Risk -->
+                        <div class="color-box">
+                            <h3>Low Risk</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #FFD600;"></div>
+                            <p>RGB(255, 214, 0)</p>
+                        </div>
+                        <!-- Moderate Risk -->
+                        <div class="color-box">
+                            <h3>Moderate Risk</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #FF6F1E;"></div>
+                            <p>RGB(255, 111, 30)</p>
+                        </div>
+                        <!-- High Risk -->
+                            <div class="color-box">
+                            <h3>High Risk</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #FF2626;"></div>
+                            <p>RGB(255, 38, 38)</p>
+                        </div>
+                        <!-- Purple Text -->
+                        <div class="color-box">
+                            <h3>Purple Text</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #6F2BA5;"></div>
+                            <p>RGB(111, 43, 165)</p>
+                        </div>
+                        <!-- Blue Text -->
+                        <div class="color-box">
+                            <h3>Blue Text</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #605DF8;"></div>
+                            <p>RGB(96, 93, 248)</p>
+                        </div>
+                        <!-- Close Tool -->
+                        <div class="color-box">
+                            <h3>Close Tool</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #453A00;"></div>
+                            <p>RGB(69, 58, 0)</p>
+                        </div>
+                        <!-- Grey Color -->
+                        <div class="color-box">
+                            <h3>Grey Color</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #D9D9D9;"></div>
+                            <p>RGB(217, 217, 217)</p>
+                        </div>
+                        <!-- Navbar Color 1 -->
+                        <div class="color-box">
+                            <h3>Navbar Color 1</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #5800B2;"></div>
+                            <p>RGB(88, 0, 178)</p>
+                        </div>
+                        <!-- Navbar Select 1 -->
+                        <div class="color-box">
+                            <h3>Navbar Select 1</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #8123E1;"></div>
+                            <p>RGB(129, 35, 225)</p>
+                        </div>
+                        <!-- Navbar Color 2 -->
+                        <div class="color-box">
+                            <h3>Navbar Color 2</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #605DF8;"></div>
+                            <p>RGB(96, 93, 248)</p>
+                        </div>
+                        <!-- Navbar Select 2 -->
+                        <div class="color-box">
+                            <h3>Navbar Select 2</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #89B8FF;"></div>
+                            <p>RGB(137, 184, 255)</p>
+                        </div>
+                        <!-- Tertiary Color -->
+                        <div class="color-box">
+                            <h3>Tertiary Color</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #000000;"></div>
+                            <p>RGB(0, 0, 0)</p>
+                        </div>
+                        <!-- Submit Button -->
+                        <div class="color-box">
+                            <h3>Submit Button</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #9747FF;"></div>
+                            <p>RGB(151, 71, 255)</p>
+                        </div>
+                        <!-- Submit Button Hover -->
+                        <div class="color-box">
+                            <h3>Submit Button Hover</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #7400e7;"></div>
+                            <p>RGB(116, 0, 231)</p>
+                        </div>
+                        <!-- Submit Button Disabled -->
+                        <div class="color-box">
+                            <h3>Submit Button Disabled</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #cea9ff;"></div>
+                            <p>RGB(206, 169, 255)</p>
+                        </div>
+                        <!-- Cancel Button -->
+                        <div class="color-box">
+                            <h3>Cancel Button</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #C04E4E;"></div>
+                            <p>RGB(192, 78, 78)</p>
+                        </div>
+                        <!-- Cancel Button Hover -->
+                        <div class="color-box">
+                            <h3>Cancel Button Hover</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #963e3e;"></div>
+                            <p>RGB(150, 62, 62)</p>
+                        </div>
+                        <!-- Cancel Button Disabled -->
+                        <div class="color-box">
+                            <h3>Cancel Button Disabled</h3>
+                            <input type="color" style="display: none;">
+                            <div class="color-rectangle" style="background-color: #b58c8c;"></div>
+                            <p>RGB(181, 140, 140)</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <!--Apply/Cancel Buttons-->
+            <div class="bottom-buttons">
+                <div class="button-commit red">Cancel</div>
+                <div class="button-commit green">Apply</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="userFeedbackDetailsModal">
+      <div id="userFeedbackDetailsModalContent">
+        <div id="userFeedbackDetailsModalEmail">Email: email@email.com</div>
+        <div id="userFeedbackDetailsModalDate">Date: 3/18/2024, 2:13:35 AM</div>
+        <div id="userFeedbackDetailsModalStatus">Status: Undealt</div>
+        <textarea id="userFeedbackMessageText" readonly></textarea>
+        <div id="scanLeaveConfirmationForm">
+            <select id="userFeedbackStatusChangeSelect">
+              <option value="Undealt">Undealt</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+            <button id="userFeedbackSaveStatusButton" class="prevent-select">Save</button>
+            <button id="userFeedbackCancelStatusChangeButton" class="prevent-select">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="adminDashContainer">
+      <div class="largeSectionGroup">
+        <h1 class="adminDashLargeSectionTitle">Site Settings <button id="backToHomepageButton" class="cancel-button">Back to Homepage</button></h1>
+        <div class="adminDashLargeSection" id="adminDashSettingsSection">
+          <div id="configAndStatusBlackBox">
+            <span id="WelcomeAdminText">Welcome Admin!</span>
+            <div id="currentConfigurationsContainer" class="blackBoxTextGroup">
+              <span>Current Configurations:</span>
+              <span id="scanSecondsLimitText">&nbsp;&nbsp;Scan Seconds Limit: 120</span>
+              <span id="maxScansPerDayText">&nbsp;&nbsp;Max Scans Per Day: 3</span>
+              <span id="demoModeText">&nbsp;&nbsp;Demo Mode Status: false</span>
+            </div>
+            <div id="previousLoginLocationContainer" class="blackBoxTextGroup">
+              <span>Previous Login Location:</span>
+              <span>&nbsp;&nbsp;London, Ontario, Canada</span>
+            </div>
+            <div id="dailySiteStatsContainer" class="blackBoxTextGroup">
+              <span>24 Hour Site Stats:</span>
+              <span>&nbsp;&nbsp;Users Queued: </span>
+              <span>&nbsp;&nbsp;Scans Attempted: </span>
+              <span>&nbsp;&nbsp;Alerts Found: </span>
+              <span>&nbsp;&nbsp;Queue Auto Corrections: </span>
+              <span>&nbsp;&nbsp;Scan Cancels: </span>
+              <span>&nbsp;&nbsp;Completed Scans: </span>
+            </div>
+            <button id="siteStatsRefreshButton" class="submit-button">Refresh Stats</button>
+          </div>
+          <div id="scanConfigurationInputsPortion">
+            <form id="scanConfigForm">
+              <div class="formInputGroupA">
+                <label for="scanSecondsLimitInput">New Scan Seconds Limit:</label>
+                <input min="0" class="scanConfigNumberInput" type="number" id="scanSecondsLimitInput" name="scanSecondsLimitInput">
+              </div>
+
+              <div class="formInputGroupA">
+                <label for="maxScansPerDayInput">New Max Scans Per Day:</label>
+                <input min="0" class="scanConfigNumberInput" type="number" id="maxScansPerDayInput" name="maxScansPerDayInput">
+              </div>
+
+              <div class="formInputGroupA">
+                <label for="demoModeSelect">Demo Mode Status:</label>
+                <select id="demoModeSelect">
+                  <option value="true">true</option>
+                  <option value="false">false</option>
+                </select>
+              </div>
+
+              <div class="formInputGroupA">
+                <label for="confirmConfigChangesInput">Confirm Changes: </label>
+                <input type="checkbox" id="confirmConfigChangesInput" name="confirmConfigChangesInput" required>
+              </div>
+
+              <div id="scanConfigButtonsContainer" class="formInputGroupA">
+                <input id="scanConfigurationSubmitButton" class="submit-button" type="submit" value="Submit" disabled>
+                <button id="scanConfigurationCancelButton" class="cancel-button" disabled>Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="motdEditorPortion">
+            <form id="scanMOTDForm">
+              <span>Message of the Day HTML Editor</span>
+              <textarea id="motdEditorTextArea"></textarea>
+
+              <div class="formInputGroup">
+                <label for="confirmMOTDChangesInput">Confirm Changes: </label>
+                <input type="checkbox" id="confirmMOTDChangesInput" name="confirmMOTDChangesInput" required>
+              </div>
+
+              <div class="formInputGroup">
+                <button id="motdEditorRevertButton" class="cancel-button" disabled>Revert</button>
+                <input id="motdEditorSubmitButton" class="submit-button" type="submit" value="Save MOTD" disabled>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="largeSectionGroup">
+        <h1 class="adminDashLargeSectionAnalyticsTitle">Analytics Viewer</h1>
+        <div id="adminDashAnalyticsSection">
+          <div id="graphViewSelectorContainer">
+            <div>Select Graph Stat:</div>
+            <select id="selectGraphSelect">
+              <option>Graph Views</option>
+              <option>Hourly Total Scans VS Last 24 Hours</option>
+              <option>View 2</option>
+              <option>View 3</option>
+              <option>View 4</option>
+            </select>
+            <div>Select Date:</div>
+            <select id="selectDateSelect">
+              <option>03/2022</option>
+              <option>04/2022</option>
+              <option>05/2022</option>
+              <option>06/2022</option>
+              <option>07/2022</option>
+            </select>
+            <button id="dataAnalyticsQueryButton">Query</button>
+          </div>
+          <div id="AdminAnalyticsGraphContainer"><canvas id="AdminAnalyticsGraph"></canvas></div>
+        </div>
+      </div>
+
+      <div class="largeSectionGroup">
+        <h1 class="adminDashLargeSectionUserFeedbackTitle">User Feedback</h1>
+        <div id="adminDashFeedbackSection">
+          <div class="table-wrap">
+            <table class="sortable">
+              <caption>
+                Site Statistics Over Time
+                <span class="sr-only">, column headers with buttons are sortable.</span>
+              </caption>
+              <thead id="statsTableHeader">
+                <tr>
+                  <th aria-sort="descending">
+                    <button>
+                      Date
+                      <span aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th>
+                    <button>
+                      Email
+                      <span aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th>
+                    <button>
+                      Status
+                      <span aria-hidden="true"></span>
+                    </button>
+                  </th>
+                  <th class="no-sort">Tools</th>
+                </tr>
+              </thead>
+              <tbody id="feedbackSystemTBody">
+                <tr>
+                  <td>3/18/2024, 6:46:24 AM</td>
+                  <td>example@email.com</td>
+                  <td>Undealt</td>
+                  <td><button>Details</button></td>
+                </tr>
+                <tr>
+                  <td>3/18/2024, 6:56:24 AM</td>
+                  <td>example1@email.com</td>
+                  <td>Responded</td>
+                  <td><button>Details</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="../../src/js/navbar.js"></script> 
+    <script src="../../src/js/colorPicker.js"></script>
+    <script src="../../src/js/languageSelector.js"></script>  
+    <script src="../../src/js/adminDash.js"></script>
+    <script src="../../src/js/sortableTable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const lineColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+      let ctx = document.getElementById('AdminAnalyticsGraph');
+      ctx.style.display="none"
+      let analyticsQueryButton = document.getElementById("dataAnalyticsQueryButton")
+
+      let analyticsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: '',
+            data: [],
+            borderWidth: 1,
+            borderColor: lineColor
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          elements: {
+            canvas: {
+                backgroundColor: '#000000' // Background color
+            }
+          }
+        }
+      });
+
+      function retrieveAnalyticsViewFromBackend(){
+        let selectedDate = selectDateSelect.value
+        let selectedColumn = selectGraphSelect.value
+
+        if (selectedDate != "" && selectedColumn != ""){
+            console.log("Getting Analytics View From Database")
+            fetch("http://localhost:3030/get-sql-view", {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": attemptedUsername,
+                "loginToken": attemptedToken,
+                "date": selectedDate,
+                "column": selectedColumn
+            })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                };
+
+                return response.json();
+            })
+            .then(data => {  
+                console.log(data)
+                ctx.style.display=""
+                let view = data["view"]
+                let viewDates = []
+                let viewValues = []
+
+                view.forEach(row => {
+                  let formattedDate = (row["date"]).split("T")
+                  formattedDate = formattedDate[0]
+                  viewDates.push(formattedDate)
+                  viewValues.push(row[selectedColumn])
+                });
+
+                analyticsChart.data.datasets[0].data = viewValues;
+                analyticsChart.data.labels = viewDates;
+                analyticsChart.update();
+            })
+            .catch(error => {
+                console.error('Fetch error:', error.message);
+            });
+        }
+      }
+
+      analyticsQueryButton.addEventListener("click", retrieveAnalyticsViewFromBackend)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+/* index.css is used to style the index.html file */
+
+@import 'global.css';
+@import 'navbar.css';
+@import 'colorPicker.css';
+@import 'languageSelector.css';
+
+body {
+    background-color: var(--background-color);
+    font-family: "font1", sans-serif;
+    color: var(--white-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* container for top page */
+.top-container {
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding-top: 50px;
+margin-right: 10%;
+margin-left: 10%;
+flex-wrap: wrap;
+}
+
+/* Total Scans Popup */
+.button {
+    display: flex;
+    background-color: var(--secondary-color);
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    font-family: 'Arial';
+    color: var(--black-text);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    flex-direction: column;
+}
+
+#totalVulnerabilitiesCounter{
+    margin-top: 20px;
+    font-size: 38px;
+    cursor: default;
+}
+
+/* Style for the blurb */
+.blurb-text {
+    color: var(--black-text);
+    font-size: 30px;
+    line-height: 1.4;
+    flex: 1;
+    margin: 0 20px;
+    font-family: Arial;
+}
+
+/* Search Bar */
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+  
+.search-label {
+    font-size: 28px;
+    color: var(--white-text);
+    white-space: nowrap;
+    margin-right: 5px;
+}
+  
+#search-input {
+    padding: 10px;
+    font-size: 28px;
+    border: 2px solid var(--background-color);
+    border-radius: 5px;
+    flex-grow: 1;
+    max-width: 500px;
+}
+  
+#search-button {
+    padding: 12px 20px;
+    background-color: var(--navbar-color);
+    color: var(---white-text);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: max-content;
+    height: 55px;
+    margin-left: 5px;
+}
+#search-button:hover{
+    background-color: var(--submit-button-hover);
+}
+
+.search-button-disabled {
+    background-color: var(--submit-button-disabled) !important;
+    cursor: default !important;
+}
+
+#cancel-button{
+    padding: 12px 20px;
+    background-color: var(--cancel-button);
+    color: var(---white-text);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    height: 55px;
+    margin-top: 10px;
+}
+
+#searchBarWithMessagesContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#queueDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: -25%;
+    font-size: 20px;
+    background-color: var(--tertiary-color);
+    border-radius: 5px;
+    padding: 10px 45px 10px 15px;
+    border: 4px solid var(--navbar-color);
+}
+#queueDetailsContainer div{
+    margin-bottom: 10px;
+}
+#queueDetailsContainer div span{
+    color: var(--high-risk);
+}
+#queueStatusDiv{
+    margin-left: 25px !important;
+}
+#scanWarningsDivContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.warningLabel{
+    color: var(--high-risk);
+    background-color: var(--tertiary-color);
+    border: 4px solid var(--navbar-color);
+    padding: 9px 23px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    font-family: "font1";
+}
+footer p {
+    background-color: var(--navbar-color);
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: max-content;
+    margin: 10px;
+}
+footer p a{
+    color: var(--white-text);
+}
+
+/* Responsiveness  */
+@media (max-width: 770px) {
+    .top-container{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 4%;
+        margin-left: 4%;
+    }
+    .button{
+        margin-top: -2%;
+        width: 90%;
+        height: 20vw;
+        border-radius: 9px;
+        font-size: 3.8vw;
+    }
+    #totalVulnerabilitiesCounter{
+        margin-top: 20px;
+        font-size: 6vw;
+    }
+}
+
+@media (max-width:640px){
+    .top-container{
+        margin-top: -5%;
+    }
+    .bottom-container{
+        flex-direction: column;
+        margin-top: -5%;
+        margin-bottom: 0%;
+    }
+    #search-input {
+        width: 80%;
+    }
+    .search-label {
+        text-align: center;
+    }
+    #search-button{
+        height: 50px;
+        width: 90%;
+    }
+    #cancel-button{
+        height: 50px;
+        width: 90%;
+    }
+    .blurb-text{
+        font-size: 5.8vw;
+    }
+}

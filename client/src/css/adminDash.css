@@ -1,0 +1,380 @@
+@import '../css/global.css';
+@import '../css/sortableTable.css';
+
+body {
+  background-color: var(--background-color);
+  color: var(--white-text);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: "font1";
+}
+
+#adminDashContainer{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminDashLargeSectionTitle {
+  font-size: 37px;
+  margin-left: 104px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.adminDashLargeSection {
+  background-color: var(--secondary-color);
+  margin: auto;
+  margin-bottom: 10px;
+  color: var(--black-text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 60px 18px;
+  border-radius: 5px;
+  width: 90%;
+  justify-content: space-around;
+}
+#configAndStatusBlackBox {
+  background-color: var(--tertiary-color);
+  color: var(--white-text);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+.blackBoxTextGroup{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3em;
+}
+.blackBoxTextGroup span{
+  margin: 5px 0px;
+}
+#WelcomeAdminText {
+  color: var(--black-text);
+  font-size: 32px;
+  margin-top: -55px;
+  padding-bottom: 10px;
+}
+#scanConfigurationInputsPortion{
+  padding: 0px 60px;
+}
+.cancel-button{
+  color: var(--white-text);
+  background-color: var(--cancel-button);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 7px;
+  font-size: 20px;
+}
+.cancel-button:hover{
+  cursor: pointer;
+  background-color: var(--cancel-button-hover);
+}
+.cancel-button:disabled{
+  background-color: var(--cancel-button-disabled);
+  cursor: default;
+}
+.submit-button{
+  color: var(--white-text);
+  background-color: var(--background-color);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+.submit-button:hover{
+  cursor: pointer;
+  background-color: var(--submit-button-hover);
+}
+.submit-button:disabled{
+  background-color: var(--submit-button-disabled);
+  cursor: default;
+}
+.scanConfigNumberInput {
+  background-color: var(--tertiary-color);
+  color: var(--white-text);
+  border-radius: 2px;
+  padding: 17px 17px;
+  width: max-content;
+}
+#demoModeSelect{
+  background-color: var(--tertiary-color);
+  color: var(--white-text);
+  border-radius: 2px;
+  padding: 17px 17px;
+  width: max-content;
+}
+#scanConfigButtonsContainer{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10px;
+}
+#scanConfigForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+#scanConfigForm .formInputGroup{
+  margin-bottom: 10px;
+}
+#scanConfigForm .formInputGroup input{
+  font-family: 'font1';
+}
+#motdEditorPortion {
+  margin-top: 28px;
+  height: 100%;
+}
+#scanMOTDForm{
+  display: flex;
+  flex-direction: column;
+}
+#scanMOTDForm span{
+  margin-top: -50px;
+}
+#scanMOTDForm textarea{
+  background-color: var(--tertiary-color);
+  color: var(--white-text);
+  resize: none;
+  overflow-y: scroll;
+  width: 500px;
+  height: 500px;
+  margin-bottom: 10px;
+}
+#scanMOTDForm .formInputGroup{
+  margin-bottom: 10px;
+}
+
+.largeSectionGroup{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+#graphViewSelectorContainer{
+  display: flex;
+  flex-direction: column;
+}
+#dataAnalyticsQueryButton{
+  margin-top: 10px;
+  color: var(--white-text);
+  background-color: var(--background-color);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+#dataAnalyticsQueryButton:hover{
+  cursor: pointer;
+  background-color: var(--submit-button-hover);
+}
+#dataAnalyticsQueryButton:disabled{
+  background-color: var(--submit-button-disabled);
+  cursor: default;
+}
+#AdminAnalyticsGraphContainer{
+  width: 800px;
+}
+#adminDashAnalyticsSection{
+  background-color: var(--secondary-color);
+  margin: auto;
+  margin-bottom: 64px;
+  color: var(--black-text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 60px 18px;
+  border-radius: 5px;
+  width: 70%;
+  justify-content: center;
+}
+#AdminAnalyticsGraph{
+
+}
+#graphViewSelectorContainer select {
+  border: none;
+  background-color: var(--grey-color);
+  color: var(--white-text);
+  font-family: 'font1';
+  padding: 18px 10px;
+}
+.adminDashLargeSectionAnalyticsTitle{
+  font-size: 37px;
+  margin-left: 303px;
+  margin-bottom: 5px;
+}
+
+#userFeedbackDetailsModal{
+  position: fixed;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--modal-faded-background-color);
+  z-index: 1999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formInputGroupA{
+  margin-bottom: 10px;
+}
+
+#userFeedbackDetailsModalContent{
+  display: flex;
+  flex-direction: column; 
+}
+#scanLeaveConfirmationForm{
+  display: flex;
+  flex-direction: column; 
+  margin-top: 10px;
+}
+
+#scanLeaveConfirmationForm button{
+  margin-top: 10px;
+}
+
+#userFeedbackStatusChangeSelect{
+  border: none;
+  font-size: 20px;
+  background-color: var(--grey-color);
+  color: var(--white-text);
+  font-family: 'font1';
+  padding: 18px 10px;
+}
+#userFeedbackSaveStatusButton{
+
+}
+#userFeedbackCancelStatusChangeButton{
+
+}
+
+#userFeedbackCancelStatusChangeButton{
+  color: var(--white-text);
+  background-color: var(--cancel-button);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+#userFeedbackCancelStatusChangeButton:hover{
+  cursor: pointer;
+  background-color: var(--cancel-button-hover);
+}
+#userFeedbackCancelStatusChangeButton:disabled{
+  background-color: var(--cancel-button-disabled);
+  cursor: default;
+}
+#userFeedbackSaveStatusButton{
+  color: var(--white-text);
+  background-color: var(--background-color);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+#userFeedbackSaveStatusButton:hover{
+  cursor: pointer;
+  background-color: var(--submit-button-hover);
+}
+#userFeedbackSaveStatusButton:disabled{
+  background-color: var(--submit-button-disabled);
+  cursor: default;
+}
+#userFeedbackMessageText{
+  height: 200px;
+}
+.userFeedbackViewDetailsButton{
+  color: var(--white-text);
+  background-color: var(--background-color);
+  border-radius: 12px;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+}
+.userFeedbackViewDetailsButton:hover{
+  cursor: pointer;
+  background-color: var(--submit-button-hover);
+}
+.userFeedbackViewDetailsButton:disabled{
+  background-color: var(--submit-button-disabled);
+  cursor: default;
+}
+
+.adminDashLargeSectionUserFeedbackTitle{
+  font-size: 37px;
+  margin-left: 303px;
+  margin-bottom: 5px;
+}
+#adminDashFeedbackSection{
+  background-color: var(--secondary-color);
+  margin: auto;
+  margin-bottom: 64px;
+  color: var(--black-text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 60px 18px;
+  border-radius: 5px;
+  width: 70%;
+  justify-content: center;
+}
+#backToHomepageButton{
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+
+@media screen and (max-width: 627px) {
+  #scanMOTDForm textarea{
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  #AdminAnalyticsGraphContainer{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .adminDashLargeSectionAnalyticsTitle {
+    font-size: 37px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }
+  .adminDashLargeSectionUserFeedbackTitle {
+    font-size: 37px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }
+  #adminDashFeedbackSection{
+    width: 80%;
+    overflow: scroll;
+    border: 5px solid var(--secondary-color);
+  }
+  .adminDashLargeSectionTitle{
+    font-size: 37px;
+    margin-left: 5%;
+    margin-bottom: 5px;
+  }
+  .table-wrap{
+    width: 100%;
+  }
+  #graphViewSelectorContainer{
+    width: 100%;
+  }
+}

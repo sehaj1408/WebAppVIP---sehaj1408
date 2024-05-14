@@ -1,0 +1,60 @@
+/* global.css is used to store any globally used CSS attributes. */
+
+/* Fonts */
+@font-face {
+    font-family: 'font1';
+    src: url(../../public/assets/fonts/inter-variablefont_slntweight-webfont.woff) format("woff");
+    src: url(../../public/assets/fonts/inter-variablefont_slntweight-webfont.woff2) format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    /* Main Colors */
+    --background-color: #9747FF;
+    --secondary-color: #FFFFFF;
+    --tertiary-color: #000000;
+
+    --all-risk: #89B8FF;
+    --info-risk: #0074CC;
+    --low-risk: #FFD600;
+    --moderate-risk: #FF6F1E;
+    --high-risk: #FF2626;
+
+    --black-text: #1e1e1e;
+    --white-text: #FFFFFF;
+    --purple-text: #6F2BA5;
+    --blue-text: #605DF8;
+
+    --dict-tool-close-button: #453A00;
+
+    --grey-color: #a7a7a7;
+
+    /* Navbar Colors */
+    --navbar-color: #5800B2;
+    --selected-navbar-toplevel-button-color: #8123E1;
+    --navbar-list-button-color: #605DF8;
+    --selected-navbar-list-button-color: #89B8FF;
+
+    /* Button Colors */
+    --submit-button: #9747FF;
+    --submit-button-hover: #7400e7;
+    --submit-button-disabled: #cea9ff;
+
+    --cancel-button: #C04E4E;
+    --cancel-button-hover: #963e3e;
+    --cancel-button-disabled: #b58c8c;
+
+    /* Modal Faded Background Color */
+    --modal-faded-background-color: rgba(17, 17, 17, 0.89);
+}
+
+/* Used to disable selection of text (Used for buttons). */
+.prevent-select {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}

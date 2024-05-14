@@ -1,0 +1,101 @@
+#languageSelectorButton{
+  border: 2px solid var(--white-text);
+  padding: 10px;
+  font-size: 30px;
+  border-radius: 5px;
+  margin: 0px 10px;
+}
+#languageSelectorButton:hover{
+  background-color: var(--navbar-list-button-color);
+  border: 2px solid var(--navbar-list-button-color);
+  cursor: pointer;
+}
+#languageSelectorButton:active{
+  background-color: var(--selected-navbar-list-button-color);
+  border: 2px solid var(--selected-navbar-list-button-color);
+  cursor: pointer;
+}
+
+#languageSelectorModal{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  background-color: var(--modal-faded-background-color);
+  justify-content: center;
+  z-index: 999;
+  align-items: flex-start;
+  color: var(--black-text);
+}
+
+#languageSelectorContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  padding: 15px 15px 5px 15px;
+  margin-top: 10%;
+  
+}
+
+#languageSelectInputContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+#languageSelectorInput{
+  font-size: 1.2em;
+  margin: 10px 0px;
+}
+
+#languageBottomButtonsContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+#languageBottomButtonsContainer button{
+  padding: 15px;
+  border-radius: 8px;
+  border: 0px solid var(--tertiary-color);
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white-text);;
+  font-size: 1.5em;
+}
+
+#languageSelectorCancelButton{
+  margin: 10px 5px;
+  background-color: var(--cancel-button);
+  cursor: pointer;
+}
+#languageSelectorApplyButton{
+  margin: 10px 5px;
+}
+.enabledApply{
+  background-color: var(--navbar-color);
+  color: var(--white-text);
+  cursor: pointer;
+}
+.disabledApply{
+  background-color: var(--submit-button-disabled);
+  color: var(--grey-color);
+  cursor: default;
+}
+
+@media (max-width: 880px){
+  #languageSelectorButton{
+      font-size: 18px;
+  }
+}
+
+@media (max-width: 320px){
+  #languageSelectorButton{
+      font-size: 15px;
+      margin: 0px;
+  }
+}
